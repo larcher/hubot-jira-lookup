@@ -1,4 +1,4 @@
-# Jira Issue lookup script for Hubot
+# JIRA Issue lookup script for Hubot
 
 ## Installation
 

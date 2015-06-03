@@ -1,5 +1,5 @@
 # Description:
-#   Jira lookup when issues are heard
+#   JIRA lookup when issues are heard
 #
 # Dependencies:
 #   None
