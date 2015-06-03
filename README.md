@@ -31,6 +31,6 @@ There are also some optional configuration values.
 
 `HUBOT_JIRA_LOOKUP_IGNORE_USERS` will allow you to ignore messages from pre-defined users. Default is to ignore from users named "jira" and "github", casing is ignored.
 
-`HUBOT_JIRA_LOOKUP_PROJECT_KEY_REGEX` allows you to specify which JIRA project keys Hubot should listen for.  Default is "[a-z]{2,5}" -- any 2 to 5 letter string.  You could expand that to catch 6 letter project keys with "[a-z]{2,6}"; or listen only for the project keys "FOO" and "BAR" (issues matching FOO-### or BAR-###) with the regex "(FOO|BAR)".
+`HUBOT_JIRA_LOOKUP_PROJECT_KEY_REGEX` allows you to specify which JIRA project keys Hubot should listen for.  Default is `[a-z]{2,5}` -- any 2 to 5 letter string.  You could expand that to catch 6 letter project keys with `[a-z]{2,6}`; or listen only for the project keys "FOO" and "BAR" (issues matching FOO-### or BAR-###) with the regex `(FOO|BAR)`.
 
 If you're using [Hubot Slack Attachments](inkel/hubot-slack-attachment), this script will use [Slack Attachments](https://api.slack.com/docs/attachments) to format its lookup result.
