@@ -9,6 +9,7 @@
 #   HUBOT_JIRA_LOOKUP_PASSWORD
 #   HUBOT_JIRA_LOOKUP_URL
 #   HUBOT_JIRA_LOOKUP_IGNORE_USERS (optional, format: "user1|user2", default is "jira|github")
+#   HUBOT_JIRA_LOOKUP_PROJECT_KEY_REGEX (optional case insensitive regex to match project keys, default is "[a-z]{2,5}")
 #
 # Commands:
 #   None
@@ -24,7 +25,12 @@ module.exports = (robot) ->
   if ignored_users == undefined
     ignored_users = "jira|github"
 
-  robot.hear /\b[a-zA-Z]{2,5}-[0-9]{1,5}\b/, (msg) ->
+  project_key_regex = process.env.HUBOT_JIRA_LOOKUP_PROJECT_KEY_REGEX 
+  if project_key_regex == undefined
+    project_key_regex = "[a-z]{2,5}"
+  issue_regex = new RegExp("\\b" + project_key_regex + "-[0-9]{1,5}\\b", "gi")
+
+  robot.hear issue_regex, (msg) ->
 
     return if msg.message.user.name.match(new RegExp(ignored_users, "gi"))
 
